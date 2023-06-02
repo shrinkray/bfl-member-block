@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "acf/member",
+	"version": "0.1.0",
+	"title": "BFL Membership Block",
+	"category": "acf-blocks",
+	"textdomain": "member",
+	"description": "A block to build membership levels.",
+	"supports": {
+		"color": {
+			"text": true,
+			"background": false
+		},
+		"mode": false
+	},
+	"keywords": [
+		"member",
+		"membership",
+		"list",
+		"cost"
+	],
+	"script": "file:./member.js",
+	"style": "file:./member.css",
+
+	"acf": {
+		"mode": "auto",
+		"renderTemplate": "member.php"
+	}
+}
