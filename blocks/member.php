@@ -24,7 +24,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
     <?php
 
-        $link   = get_field( 'link' );
+
 
     // Repeater
 
@@ -32,9 +32,13 @@ $wrapper_attributes = get_block_wrapper_attributes(
         while ( have_rows( 'add_card' ) ) : the_row();
 
             $type_member    = get_sub_field( 'type_member' );
-            $classname      = get_sub_field( 'set_classname' ); ?>
+            $classname      = get_sub_field( 'set_classname' );
+            $add_more       = get_sub_field( 'add_more' );
 
-    <article class="card ">
+            ?>
+
+    <article class="card <?= $add_more ? 'bulb' : '';   ?>">
+
 
             <?php
 
@@ -49,9 +53,12 @@ $wrapper_attributes = get_block_wrapper_attributes(
                     $btn_label          = get_sub_field( 'label' );
                     $add_note           = get_sub_field( 'add_note' );
                     $cost_note          = get_sub_field( 'cost_note' );
-                    $add_plus           = get_sub_field( 'add_+' );
+                    $add_plus           = get_sub_field( 'add_plus' );
                     $more_label         = get_sub_field( 'more_link_label' );
                     $more_anchor        = get_sub_field( 'more_link_anchor' );
+                    $form_label         = get_sub_field( 'form_link_label' ); // wording on button
+                    $form_attr          = get_sub_field( 'form_link_title' ); // title attr
+                    $form_url           = get_sub_field( 'form_link_url' );   // link
 
 
 
@@ -96,35 +103,43 @@ $wrapper_attributes = get_block_wrapper_attributes(
                         </div>
                         <?php
                         endif; ?>
-                    <?php
-                     if ( $description ): ?>
-                        <div class="description"><?= esc_html( $description ); ?>
-                            <a class="cta-link" type="link" href="<?= '#' . esc_attr( $more_anchor ); ?>" target="_self"><?= esc_html( $more_label ); ?></a></div>
+                        <?php
+                         if ( $description ): ?>
+                            <div class="description"><?= esc_html( $description ); ?>
 
-                    <?php
-                    endif;  ?>
+                            </div>
+
+                        <?php
+                        endif;  ?>
+
 
                     </div>
                 
                     <div class="footer">
+                        <?php // add inline anchor
+                        if ( $add_more ): ?>
+                            <a class="cta-link" type="link" href="<?= '#' . esc_attr( $more_anchor ); ?>"
+                               target="_self"><?= esc_html( $more_label ); ?></a>
                         <?php
-                        if ( $link ) :
-                            $link_url = $link['url'];
-                            $link_title = $link['title'];
-                            $link_target = $link['target'];
-                        ?>
+                            endif; ?>
 
-                        <a class="cta-btn" type="link" href="<?= esc_url( $link_url ) ?>" target="<?= 
-                        esc_attr( $link_target ); ?>" title="<?= esc_attr( $link_title ); ?>"><?= esc_html( $btn_label ); ?></a>
                         <?php
-                        endif;
+                        if ( $form_url ):
                         ?>
+                        <a class="cta-btn" type="link" href="<?= esc_url( $form_url ) ?>" target="_blank"
+                           title="<?= esc_attr( $form_attr ); ?>"><?= esc_html( $form_label ); ?></a>
+                    <?php
+                        endif; ?>
+
+
                     </div>
+
 
                 <?php endwhile; // build_segment?>
             <?php else : // build_segment ?>
                 <?php // No rows found ?>
             <?php endif; // build_segment ?>
+
     </article>
 
         <?php endwhile; // add_card ?>
