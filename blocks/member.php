@@ -62,8 +62,11 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 
 
+
                     // assign special character value to $char if $add_plus is true
                     $add_plus ? $char = '+' : $char = '';
+
+
 
                     ?>
 
@@ -124,13 +127,30 @@ $wrapper_attributes = get_block_wrapper_attributes(
                             endif; ?>
 
                         <?php
+                        $open_tab           = get_sub_field( 'open_tab' );
+                        $set_anchor         = get_sub_field( 'set_link_anchor' );
+
+
+
                         if ( $form_url ):
+
+                            // set value for target if linking internal vs external
+
+                            ( $open_tab ) ?
+                                $target = '_blank' :
+                                $target = '_parent';
+
+                            //  add an anchor if it does not exist, add nothing.
+
+                            ( $set_anchor ) ?
+                                $anchor = '#' . $set_anchor :
+                                $anchor = '';
+
                         ?>
-                        <a class="cta-btn" type="link" href="<?= esc_url( $form_url ) ?>" target="_blank"
+                        <a class="cta-btn" type="link" href="<?= esc_url( $form_url ) ?><?= $anchor; ?>" target="<?= esc_attr( $target ); ?>"
                            title="<?= esc_attr( $form_attr ); ?>"><?= esc_html( $form_label ); ?></a>
                     <?php
                         endif; ?>
-
 
                     </div>
 
