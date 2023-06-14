@@ -20,7 +20,7 @@
 	--bfl-hazy-tint: #ffebebff;
 
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax( 18rem, 20rem));
+	grid-template-columns: repeat(auto-fill, minmax(18rem, 20rem));
 	column-gap: 2rem;
 	row-gap: 3rem;
 	margin: 0 0 4rem 0;
@@ -36,10 +36,10 @@
 		border-radius: 1rem;
 
 		&.bulb {
-			background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 21 27' xmlns='http://www.w3.org/2000/svg' stroke-linejoin='round' stroke-miterlimit='2'%3E%3Cpath fill='%23f1f1f1ff' d='M12.333.078C5.388-.656 2.191 3.983.818 7.134c-2.473 6.558 1.239 10.112 3.487 10.86 1.244.585 2.489-1.037.983-2.14-1.507-1.103-4.195-3.947-1.738-8.72h-.001c1.646-2.772 4.235-5.567 9.064-4.754 6.821 1.149 5.249 10.75 1.564 13.73-2.745 2.196-7.085 3.084-9.516 3.573-2.43.488-1.606 1.64.338 2.143l1.943.502s-3.341-.037-3.292 1.316c.049 1.354 3.425 1.959 5.376 2.33 1.951.37 3.242-.87.643-1.41-2.6-.537-2.382-.85-.364-.931 2.019-.081 3.412-1.13.577-1.93l-2.835-.8s7.839-.72 10.832-5.78c2.992-5.057 4.376-13.997-5.546-15.045z' /%3E%3C/svg%3E");
+			background-image: url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PScwIDAgMjEgMjcnIHdpZHRoPScyMScgaGVpZ2h0PScyNycgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyBzdHJva2UtbGluZWpvaW49J3JvdW5kJyBzdHJva2UtbWl0ZXJsaW1pdD0nMicgcHJlc2VydmVBc3BlY3RSYXRpbz0nbm9uZSc+PHBhdGggZmlsbD0nI2YxZjFmMWZmJyBkPSdNMTIuMzMzLjA3OEM1LjM4OC0uNjU2IDIuMTkxIDMuOTgzLjgxOCA3LjEzNGMtMi40NzMgNi41NTggMS4yMzkgMTAuMTEyIDMuNDg3IDEwLjg2IDEuMjQ0LjU4NSAyLjQ4OS0xLjAzNy45ODMtMi4xNC0xLjUwNy0xLjEwMy00LjE5NS0zLjk0Ny0xLjczOC04LjcyaC0uMDAxYzEuNjQ2LTIuNzcyIDQuMjM1LTUuNTY3IDkuMDY0LTQuNzU0IDYuODIxIDEuMTQ5IDUuMjQ5IDEwLjc1IDEuNTY0IDEzLjczLTIuNzQ1IDIuMTk2LTcuMDg1IDMuMDg0LTkuNTE2IDMuNTczLTIuNDMuNDg4LTEuNjA2IDEuNjQuMzM4IDIuMTQzbDEuOTQzLjUwMnMtMy4zNDEtLjAzNy0zLjI5MiAxLjMxNmMuMDQ5IDEuMzU0IDMuNDI1IDEuOTU5IDUuMzc2IDIuMzMgMS45NTEuMzcgMy4yNDItLjg3LjY0My0xLjQxLTIuNi0uNTM3LTIuMzgyLS44NS0uMzY0LS45MzEgMi4wMTktLjA4MSAzLjQxMi0xLjEzLjU3Ny0xLjkzbC0yLjgzNS0uOHM3LjgzOS0uNzIgMTAuODMyLTUuNzhjMi45OTItNS4wNTcgNC4zNzYtMTMuOTk3LTUuNTQ2LTE1LjA0NXonIC8+PC9zdmc+");
 			background-repeat: no-repeat;
 			background-position: bottom 5.5rem right -1.5rem;
-			background-size: 4rem;
+			background-size: 20%;
 			position: relative;
 			z-index: 1;
 		}
@@ -183,7 +183,13 @@
 }
 
 @media screen and (max-width: 768px) {
+
 	.member {
-		grid-template-columns: repeat(auto-fit, minmax( 18rem, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+	}
+
+	// adjust position for background image
+	#ajax-content-wrap > .wp-block-qubely-row.qubely-section {
+		background-position: left 20%  center !important;
 	}
 }

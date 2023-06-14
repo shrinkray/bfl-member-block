@@ -35,13 +35,14 @@ $wrapper_attributes = get_block_wrapper_attributes(
             $classname      = get_sub_field( 'set_classname' );
             $add_more       = get_sub_field( 'add_more' );
 
+
             ?>
 
-    <article class="card <?= $add_more ? 'bulb' : '';   ?>">
+
 
 
             <?php
-
+            echo $add_more;
         // Repeater
 
             if ( have_rows( 'build_segment' ) ) :
@@ -59,6 +60,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
                     $form_label         = get_sub_field( 'form_link_label' ); // wording on button
                     $form_attr          = get_sub_field( 'form_link_title' ); // title attr
                     $form_url           = get_sub_field( 'form_link_url' );   // link
+                    $add_more           = get_sub_field( 'add_more' );
 
 
 
@@ -69,7 +71,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 
                     ?>
-
+                    <article class="card <?= $add_more ? 'bulb' : '';   ?>">
                     <div class="header <?= esc_attr( $classname ); ?>">
 
                         <h3 class="unit-desc"><?= esc_html( $type_member ) ?></h3>
@@ -91,9 +93,9 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
                         <?php // Code option for price, show a message for flex spaces
                         if ( $cost ):
-                        ?> 
+                        ?>
                         <div class="unit-cost">
-                        <span class="dollar-sign">$</span><span class="value"><?= esc_attr( $cost ); ?></span><span 
+                        <span class="dollar-sign">$</span><span class="value"><?= esc_attr( $cost ); ?></span><span
                                 class="plus-char"><?= esc_html( $char ); ?></span><span class="range">/mo</span>
                         </div>
                         <?php
@@ -117,9 +119,10 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 
                     </div>
-                
+
                     <div class="footer">
                         <?php // add inline anchor
+
                         if ( $add_more ): ?>
                             <a class="cta-link" type="link" href="<?= '#' . esc_attr( $more_anchor ); ?>"
                                target="_self"><?= esc_html( $more_label ); ?></a>
@@ -154,13 +157,13 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
                     </div>
 
-
+                    </article>
                 <?php endwhile; // build_segment?>
             <?php else : // build_segment ?>
                 <?php // No rows found ?>
             <?php endif; // build_segment ?>
 
-    </article>
+
 
         <?php endwhile; // add_card ?>
     <?php else : // add_card ?>

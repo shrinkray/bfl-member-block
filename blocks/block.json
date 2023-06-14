@@ -15,12 +15,7 @@
 		},
 		"mode": false
 	},
-	"keywords": [
-		"member",
-		"membership",
-		"list",
-		"cost"
-	],
+	"keywords": [ "member", "membership", "list", "cost" ],
 	"script": "file:./member.js",
 	"style": "file:./member.css",
 
