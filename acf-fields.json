@@ -1,29 +1,571 @@
 [
-  {
-    "key": "group_64121077a5caf",
-    "title": "Dummy Block",
-    "fields": [
-      {
-
-      }
-    ],
-    "location": [
-      [
-        {
-          "param": "block",
-          "operator": "==",
-          "value": "acf/dummy"
-        }
-      ]
-    ],
-    "menu_order": 0,
-    "position": "normal",
-    "style": "default",
-    "label_placement": "top",
-    "instruction_placement": "label",
-    "hide_on_screen": "",
-    "active": true,
-    "description": "",
-    "show_in_rest": 0
-  }
+	{
+		"key": "group_647e00f0ab417",
+		"title": "Membership block",
+		"fields": [
+			{
+				"key": "field_647e1456ddb81",
+				"label": "Add member card",
+				"name": "add_card",
+				"aria-label": "",
+				"type": "repeater",
+				"instructions": "",
+				"required": 0,
+				"conditional_logic": 0,
+				"wrapper": { "width": "", "class": "", "id": "" },
+				"layout": "block",
+				"pagination": 0,
+				"min": 0,
+				"max": 0,
+				"collapsed": "field_647e00f35d9ff",
+				"button_label": "Add member card",
+				"rows_per_page": 20,
+				"sub_fields": [
+					{
+						"key": "field_647e00f35d9ff",
+						"label": "Type of member",
+						"name": "type_member",
+						"aria-label": "",
+						"type": "text",
+						"instructions": "Name the type",
+						"required": 0,
+						"conditional_logic": 0,
+						"wrapper": { "width": "", "class": "", "id": "" },
+						"default_value": "",
+						"maxlength": "",
+						"placeholder": "",
+						"prepend": "",
+						"append": "",
+						"parent_repeater": "field_647e1456ddb81"
+					},
+					{
+						"key": "field_647e422488145",
+						"label": "Set classname",
+						"name": "set_classname",
+						"aria-label": "",
+						"type": "select",
+						"instructions": "Apply classname to card visual treatment",
+						"required": 0,
+						"conditional_logic": 0,
+						"wrapper": { "width": "", "class": "", "id": "" },
+						"choices": {
+							"supporter": "supporter",
+							"maker": "maker",
+							"coworking": "coworking",
+							"office": "office"
+						},
+						"default_value": false,
+						"return_format": "value",
+						"multiple": 0,
+						"allow_null": 0,
+						"ui": 0,
+						"ajax": 0,
+						"placeholder": "",
+						"parent_repeater": "field_647e1456ddb81"
+					},
+					{
+						"key": "field_647e16d801770",
+						"label": "Build segment",
+						"name": "build_segment",
+						"aria-label": "",
+						"type": "repeater",
+						"instructions": "",
+						"required": 0,
+						"conditional_logic": [
+							[
+								{
+									"field": "field_647e00f35d9ff",
+									"operator": "!=empty"
+								}
+							]
+						],
+						"wrapper": { "width": "", "class": "", "id": "" },
+						"layout": "block",
+						"min": 0,
+						"max": 1,
+						"collapsed": "field_647e19e101772",
+						"button_label": "Add info",
+						"rows_per_page": 20,
+						"sub_fields": [
+							{
+								"key": "field_647e656a2804d",
+								"label": "Name",
+								"name": "",
+								"aria-label": "",
+								"type": "accordion",
+								"instructions": "",
+								"required": 0,
+								"conditional_logic": 0,
+								"wrapper": {
+									"width": "",
+									"class": "",
+									"id": ""
+								},
+								"open": 0,
+								"multi_expand": 0,
+								"endpoint": 0,
+								"parent_repeater": "field_647e16d801770"
+							},
+							{
+								"key": "field_647f53d90596f",
+								"label": "Add segment name?",
+								"name": "add_segment_name",
+								"aria-label": "",
+								"type": "true_false",
+								"instructions": "Used with Coworking or Office segments.",
+								"required": 0,
+								"conditional_logic": 0,
+								"wrapper": {
+									"width": "",
+									"class": "",
+									"id": ""
+								},
+								"message": "Yes",
+								"default_value": 0,
+								"ui": 0,
+								"ui_on_text": "",
+								"ui_off_text": "",
+								"parent_repeater": "field_647e16d801770"
+							},
+							{
+								"key": "field_647e19e101772",
+								"label": "Name segment",
+								"name": "name_segment",
+								"aria-label": "",
+								"type": "text",
+								"instructions": "",
+								"required": 0,
+								"conditional_logic": [
+									[
+										{
+											"field": "field_647f53d90596f",
+											"operator": "==",
+											"value": "1"
+										}
+									]
+								],
+								"wrapper": {
+									"width": "",
+									"class": "",
+									"id": ""
+								},
+								"default_value": "",
+								"maxlength": "",
+								"placeholder": "",
+								"prepend": "",
+								"append": "",
+								"parent_repeater": "field_647e16d801770"
+							},
+							{
+								"key": "field_647e64da2804c",
+								"label": "Prices",
+								"name": "",
+								"aria-label": "",
+								"type": "accordion",
+								"instructions": "",
+								"required": 0,
+								"conditional_logic": 0,
+								"wrapper": {
+									"width": "",
+									"class": "",
+									"id": ""
+								},
+								"open": 0,
+								"multi_expand": 0,
+								"endpoint": 0,
+								"parent_repeater": "field_647e16d801770"
+							},
+							{
+								"key": "field_647e179601771",
+								"label": "Select price",
+								"name": "select_price",
+								"aria-label": "",
+								"type": "select",
+								"instructions": "",
+								"required": 0,
+								"conditional_logic": 0,
+								"wrapper": {
+									"width": "",
+									"class": "",
+									"id": ""
+								},
+								"choices": {
+									"25": "$25",
+									"40": "$40",
+									"50": "$50",
+									"15": "$15",
+									"75": "$75",
+									"150": "$150",
+									"250": "$250",
+									"310": "$310"
+								},
+								"default_value": false,
+								"return_format": "value",
+								"multiple": 0,
+								"allow_null": 0,
+								"ui": 0,
+								"ajax": 0,
+								"placeholder": "",
+								"parent_repeater": "field_647e16d801770"
+							},
+							{
+								"key": "field_647e664ddf072",
+								"label": "Add note?",
+								"name": "add_note",
+								"aria-label": "",
+								"type": "true_false",
+								"instructions": "Puts a line of text below the price.",
+								"required": 0,
+								"conditional_logic": 0,
+								"wrapper": {
+									"width": "",
+									"class": "",
+									"id": ""
+								},
+								"message": "Extra comments",
+								"default_value": 0,
+								"ui": 0,
+								"ui_on_text": "",
+								"ui_off_text": "",
+								"parent_repeater": "field_647e16d801770"
+							},
+							{
+								"key": "field_647e5a14e7f3a",
+								"label": "Cost note",
+								"name": "cost_note",
+								"aria-label": "",
+								"type": "wysiwyg",
+								"instructions": "Text will be auto centered and italicized. If you need to bold-face something, click below. Otherwise, enter your text.",
+								"required": 0,
+								"conditional_logic": [
+									[
+										{
+											"field": "field_647e664ddf072",
+											"operator": "==",
+											"value": "1"
+										}
+									]
+								],
+								"wrapper": {
+									"width": "",
+									"class": "",
+									"id": ""
+								},
+								"default_value": "incremental",
+								"tabs": "visual",
+								"toolbar": "basic",
+								"media_upload": 0,
+								"delay": 1,
+								"parent_repeater": "field_647e16d801770"
+							},
+							{
+								"key": "field_647e63ed2804b",
+								"label": "Add (+)",
+								"name": "add_plus",
+								"aria-label": "",
+								"type": "true_false",
+								"instructions": "Inserts a '+' right after the price. Ranges up.",
+								"required": 0,
+								"conditional_logic": 0,
+								"wrapper": {
+									"width": "",
+									"class": "",
+									"id": ""
+								},
+								"message": "Append + on cost",
+								"default_value": 0,
+								"ui": 0,
+								"ui_on_text": "",
+								"ui_off_text": "",
+								"parent_repeater": "field_647e16d801770"
+							},
+							{
+								"key": "field_647e658a2804e",
+								"label": "Description",
+								"name": "",
+								"aria-label": "",
+								"type": "accordion",
+								"instructions": "",
+								"required": 0,
+								"conditional_logic": 0,
+								"wrapper": {
+									"width": "",
+									"class": "",
+									"id": ""
+								},
+								"open": 0,
+								"multi_expand": 0,
+								"endpoint": 0,
+								"parent_repeater": "field_647e16d801770"
+							},
+							{
+								"key": "field_647e1a4e01773",
+								"label": "Description",
+								"name": "description",
+								"aria-label": "",
+								"type": "textarea",
+								"instructions": "Length should be around 15 words.",
+								"required": 0,
+								"conditional_logic": 0,
+								"wrapper": {
+									"width": "",
+									"class": "",
+									"id": ""
+								},
+								"default_value": "",
+								"maxlength": "",
+								"rows": 4,
+								"placeholder": "",
+								"new_lines": "",
+								"parent_repeater": "field_647e16d801770"
+							},
+							{
+								"key": "field_6480d4e61aa1b",
+								"label": "Form button",
+								"name": "",
+								"aria-label": "",
+								"type": "accordion",
+								"instructions": "",
+								"required": 0,
+								"conditional_logic": 0,
+								"wrapper": {
+									"width": "",
+									"class": "",
+									"id": ""
+								},
+								"open": 0,
+								"multi_expand": 0,
+								"endpoint": 0,
+								"parent_repeater": "field_647e16d801770"
+							},
+							{
+								"key": "field_647e5422e7f39",
+								"label": "Form link button",
+								"name": "form_link_label",
+								"aria-label": "",
+								"type": "text",
+								"instructions": "Ideas are ... I want this! ... Sign me up! ... Yes, I'll join!",
+								"required": 0,
+								"conditional_logic": 0,
+								"wrapper": {
+									"width": "",
+									"class": "",
+									"id": ""
+								},
+								"default_value": "Interested?",
+								"maxlength": "",
+								"placeholder": "",
+								"prepend": "",
+								"append": "",
+								"parent_repeater": "field_647e16d801770"
+							},
+							{
+								"key": "field_647e52cbcb3dc",
+								"label": "Form link title",
+								"name": "form_link_title",
+								"aria-label": "",
+								"type": "text",
+								"instructions": "Want to keep this title? Don't change it.",
+								"required": 0,
+								"conditional_logic": 0,
+								"wrapper": {
+									"width": "",
+									"class": "",
+									"id": ""
+								},
+								"default_value": "Join us! click to visit our membership page.",
+								"maxlength": "",
+								"placeholder": "",
+								"prepend": "",
+								"append": "",
+								"parent_repeater": "field_647e16d801770"
+							},
+							{
+								"key": "field_6480d8381aa1c",
+								"label": "Form link url",
+								"name": "form_link_url",
+								"aria-label": "",
+								"type": "text",
+								"instructions": "",
+								"required": 0,
+								"conditional_logic": 0,
+								"wrapper": {
+									"width": "",
+									"class": "",
+									"id": ""
+								},
+								"default_value": "https://app.getoccasion.com/p/n/xn38azmn",
+								"maxlength": "",
+								"placeholder": "",
+								"prepend": "",
+								"append": "",
+								"parent_repeater": "field_647e16d801770"
+							},
+							{
+								"key": "field_648100febaf7e",
+								"label": "Open tab",
+								"name": "open_tab",
+								"aria-label": "",
+								"type": "true_false",
+								"instructions": "Will open new tab for an external link, uncheck for an internal link.",
+								"required": 0,
+								"conditional_logic": 0,
+								"wrapper": {
+									"width": "",
+									"class": "",
+									"id": ""
+								},
+								"message": "Open new tab",
+								"default_value": 1,
+								"ui": 0,
+								"ui_on_text": "",
+								"ui_off_text": "",
+								"parent_repeater": "field_647e16d801770"
+							},
+							{
+								"key": "field_6481070ea17f7",
+								"label": "Set link anchor",
+								"name": "set_link_anchor",
+								"aria-label": "",
+								"type": "text",
+								"instructions": "If link is internal, you can specify an anchor to land on after loading the page. Do not add a '#' prefix. We'll handle that in the code. Cheers! \ud83c\udf7b",
+								"required": 0,
+								"conditional_logic": [
+									[
+										{
+											"field": "field_648100febaf7e",
+											"operator": "!=",
+											"value": "1"
+										}
+									]
+								],
+								"wrapper": {
+									"width": "",
+									"class": "",
+									"id": ""
+								},
+								"default_value": "",
+								"maxlength": "",
+								"placeholder": "",
+								"prepend": "",
+								"append": "",
+								"parent_repeater": "field_647e16d801770"
+							},
+							{
+								"key": "field_6480dc82e57d9",
+								"label": "Details button",
+								"name": "",
+								"aria-label": "",
+								"type": "accordion",
+								"instructions": "",
+								"required": 0,
+								"conditional_logic": 0,
+								"wrapper": {
+									"width": "",
+									"class": "",
+									"id": ""
+								},
+								"open": 0,
+								"multi_expand": 0,
+								"endpoint": 0,
+								"parent_repeater": "field_647e16d801770"
+							},
+							{
+								"key": "field_6480ed3f394e4",
+								"label": "Add more",
+								"name": "add_more",
+								"aria-label": "",
+								"type": "true_false",
+								"instructions": "",
+								"required": 0,
+								"conditional_logic": 0,
+								"wrapper": {
+									"width": "",
+									"class": "",
+									"id": ""
+								},
+								"message": "Yes, add details button?",
+								"default_value": 0,
+								"ui": 0,
+								"ui_on_text": "",
+								"ui_off_text": "",
+								"parent_repeater": "field_647e16d801770"
+							},
+							{
+								"key": "field_647f633d3789c",
+								"label": "More link label",
+								"name": "more_link_label",
+								"aria-label": "",
+								"type": "text",
+								"instructions": "CSS is best with DETAILS as the wording on the link.",
+								"required": 0,
+								"conditional_logic": [
+									[
+										{
+											"field": "field_6480ed3f394e4",
+											"operator": "==",
+											"value": "1"
+										}
+									]
+								],
+								"wrapper": {
+									"width": "",
+									"class": "",
+									"id": ""
+								},
+								"default_value": "DETAILS",
+								"maxlength": "",
+								"placeholder": "",
+								"prepend": "",
+								"append": "",
+								"parent_repeater": "field_647e16d801770"
+							},
+							{
+								"key": "field_647f88eb6fa00",
+								"label": "More link anchor",
+								"name": "more_link_anchor",
+								"aria-label": "",
+								"type": "text",
+								"instructions": "Set the more link in the editor on the right sidebar in 'Advanced settings' accordion. Do not prepend the anchor with a '#'. That was handled.",
+								"required": 0,
+								"conditional_logic": [
+									[
+										{
+											"field": "field_6480ed3f394e4",
+											"operator": "==",
+											"value": "1"
+										}
+									]
+								],
+								"wrapper": {
+									"width": "",
+									"class": "",
+									"id": ""
+								},
+								"default_value": "",
+								"maxlength": "",
+								"placeholder": "",
+								"prepend": "",
+								"append": "",
+								"parent_repeater": "field_647e16d801770"
+							}
+						],
+						"parent_repeater": "field_647e1456ddb81"
+					}
+				]
+			}
+		],
+		"location": [
+			[ { "param": "block", "operator": "==", "value": "acf/member" } ]
+		],
+		"menu_order": 0,
+		"position": "normal",
+		"style": "default",
+		"label_placement": "top",
+		"instruction_placement": "label",
+		"hide_on_screen": "",
+		"active": true,
+		"description": "",
+		"show_in_rest": 0
+	}
 ]

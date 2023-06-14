@@ -1,2 +1,1 @@
 import './member.scss';
-
